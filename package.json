@@ -1,0 +1,27 @@
+{
+  "name": "terrier-tracker",
+  "version": "0.1.0",
+  "description": "transportation tracker for Boston University students",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Trey Yang",
+  "license": "ISC",
+  "repository": "https://github.com/trey-yang/terrier-tracker",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "connect-ensure-login": "^0.1.1",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "express-validator": "^5.3.0",
+    "mongodb": "^3.1.10",
+    "mongojs": "^2.6.0",
+    "mz": "^2.7.0",
+    "passport": "^0.4.0",
+    "passport-twitter": "^1.0.4",
+    "request": "^2.88.0",
+    "validator": "^10.8.0"
+  }
+}

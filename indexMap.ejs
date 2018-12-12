@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Terrier Trackah</title>
+  <meta name="viewport" content="initial-scale=1.0">
+  <meta charset="utf-8">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="js/loadMap.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="style/index.css" type="text/css" />
+  <!-- app key below has to be left in the client side for map rendering -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIaT9xH4Wvg2vrAFXUOtoEP32Skxh1Mps&libraries=geometry" async defer></script>
+</head>
+
+<body>
+  <div id="nav">
+    <div class="middle">
+      <div class="title">
+        <a href="/"><img src="assets/logo.png"></a>
+        <button type="button" class="btn btn-outline-dark btn-sm" style="font-size:.7rem; margin-left:1em" data-toggle="modal" data-target="#locations">Route</button><a class="btn btn-outline-danger btn-sm" style="font-size:.7rem; margin-left:1em" href="/logout">Logout</a>
+        <div style="font-size: 50%">Welcome back,
+          <%= user.username %>!
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="map"></div>
+  <script>
+    $(function() {
+      $(window).on('load', function() {
+        var map;
+        initMap(map);
+      });
+    });
+  </script>
+  <!-- Modal -->
+  <div id="locations" class="modal fade" role="dialog" style="font-size:50%;">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Distance Search</h4>
+        </div>
+        <div class="modal-body">
+          <% include locations %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

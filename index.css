@@ -1,0 +1,44 @@
+html,body {
+	font-family: verdana;
+	color: #7a003d;
+	font-size: 150%;
+	height: 98%;
+	margin: 0;
+	padding: 0;
+}
+
+a:link {color:#5769c5;}
+a:visited {color:#1e2366;}
+a:active {color:#ec2f5e;}
+
+h3 {
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 180%;
+}
+
+#nav {
+	height: 10%;
+	/*margin: 0% 2% 0 2%;*/
+	top: 0;
+	left: 0;
+	width: 100%;
+	display: table;
+}
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+.title {
+	margin-left: 2%;
+	margin-right: auto;
+}
+.talkback {
+	font-family: verdana;
+	color: #7a003d;
+	font-size: 80%;
+}
+
+#map {
+	height: 90%;
+	margin: 0 2% 0 2%;
+}

@@ -1,0 +1,55 @@
+<form action="/googleDirectionSearch" method="post">
+  <div class="form-group">
+    <label for="origin">Your location:</label>
+    <input type="text" class="form-control form-control-sm" id="origin" placeholder="origin" name="origin">
+    <label><input type="checkbox" name="rememberOri"> save origin as favorite</label>
+  </div>
+  <div class="form-group">
+    <label for="destination">Destination:</label>
+    <input type="text" class="form-control form-control-sm" id="destination" placeholder="destination" name="destination">
+    <label><input type="checkbox" name="rememberDest"> save destination as favorite</label>
+  </div>
+  <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+</form>
+<br>
+<div class="talkback"><p id="results"></p></div>
+<form>
+  <div class="form-group input-group-sm">
+    <label for="favorite">Favorite Locations</label>
+    <select class="form-control" id="favorite">
+      <% for(var i=0; i < fav.length; i++) { %>
+        <option><%= fav[i] %></option>
+      <% } %>
+    </select>
+  </div>
+</form>
+<button id="setOri" onClick="moveToOri()" class="btn btn-secondary btn-sm">Set as Origin</button>
+<button id="setDest" onClick="moveToDest()" class="btn btn-secondary btn-sm">Set as Destination</button>
+<button id="delete" onClick="delete()" class="btn btn-danger btn-sm">Delete</button>
+
+<script>
+  function moveToOri() {
+    document.getElementById('origin').value = document.getElementById('favorite').value;
+  };
+  function moveToDest() {
+    document.getElementById('destination').value = document.getElementById('favorite').value;
+  };
+  $(function() {
+    $("form").on("submit", function(event) {
+      event.preventDefault();
+      var formData = $(this).serialize();
+      $.ajax({
+          type: 'POST',
+          url: '/googleDirectionSearch',
+          data: formData,
+          dataType: 'html',
+          encode: true
+        })
+        .done(function(data) {
+          $("#results").text(data);
+          //console.log(data);
+        });
+      //$( "#results" ).text( str );
+    });
+  });
+</script>
